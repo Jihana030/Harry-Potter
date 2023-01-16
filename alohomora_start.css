@@ -2,8 +2,14 @@
     margin: 0; padding: 0;
 }
 /* 스크롤 가로세로 다 막자 */
+/* ------------컨테이너----------------------컨테이너------------------------------------------ */
+.start_ctn {
+    overflow: hidden;
+}
+/* ------------컨테이너----------------------컨테이너-------------------------------------------- */
 /* ------------------밝은 배경--------------------------밝은 배경----------------------- */
 .start_back {
+    position: absolute;
     width: 100vw;
     height: 100vh;
     background-color: #E4DDD0;
@@ -12,12 +18,30 @@
 /* -------------어두운 배경----------------------------어두운 배경------------------------- */
 .start_backChange_right {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
-    transition: transform 5s;
-    transform-origin: 100% 0%;
-    transform: rotate(90deg);
+    right: 0;
+    width: 50vw;
+    height: 100%;
     background-color: #211B19;
+}
+
+.start_ani_right {
+    transition: transform 4s;
+    transform-origin: 0% 100%;
+    transform: rotate(90deg) scale(300%);
+}
+
+.start_backChange_left {
+    position: absolute;
+    left: 0;
+    width: 50vw;
+    height: 100%;
+    background-color: #211B19;
+}
+
+.start_ani_left {
+    transform-origin: 100% 100%;
+    transition: transform 4s;
+    transform: rotate(-90deg) scale(300%);
 }
 /* -------------어두운 배경----------------------------어두운 배경------------------------- */
 
@@ -34,6 +58,7 @@
     font-family: 'Ibarra Real Nova';
     /* 한글영어 폰트 지정하기 */
     background-color: transparent;
+    color: white;
 }
 
 .alohomora:focus {
