@@ -37,10 +37,10 @@ body {
     position: absolute;
     height: 100%;
     width: 200%;
-    left: 0; top: 0;
+    right: 0; top: 0;
 }
 .start_ani_right {
-    transition: transform 4s;
+    transition: transform 2s;
     transform-origin: 0% 100%;
     transform: rotate(90deg) scale(400%);
 }
@@ -51,7 +51,7 @@ body {
     position: absolute;
     width: 200%;
     height: 100%;
-    right: 0; top: 0;
+    left: 0; top: 0;
 }
 
 .start_backChange_left {
@@ -65,7 +65,7 @@ body {
 
 .start_ani_left {
     transform-origin: 100% 100%;
-    transition: transform 4s;
+    transition: transform 2s;
     transform: rotate(-90deg) scale(400%);
 }
 /* -------------어두운 배경----------------------------어두운 배경------------------------- */
@@ -85,7 +85,7 @@ body {
     /* 한글영어 폰트 지정하기 */
     background-color: transparent;
     color: white;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgb(46, 46, 46);
 }
 
 .alohomora:focus {
