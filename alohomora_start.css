@@ -28,12 +28,30 @@ body {
     width: 50vw;
     height: 100vh;
     background-color: #211B19;
+    overflow: hidden;
 }
 
+.start_img_right {
+    opacity: 30%;
+    filter: grayscale(100%);
+    position: absolute;
+    height: 100%;
+    width: 200%;
+    left: 0; top: 0;
+}
 .start_ani_right {
     transition: transform 4s;
     transform-origin: 0% 100%;
     transform: rotate(90deg) scale(400%);
+}
+
+.start_img_left {
+    opacity: 30%;
+    filter: grayscale(100%);
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    right: 0; top: 0;
 }
 
 .start_backChange_left {
@@ -42,6 +60,7 @@ body {
     width: 50vw;
     height: 100vh;
     background-color: #211B19;
+    overflow: hidden;
 }
 
 .start_ani_left {
