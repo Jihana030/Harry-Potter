@@ -1,10 +1,16 @@
 *{
     margin: 0; padding: 0;
 }
-/* 스크롤 가로세로 다 막자 */
+/* ----------------가로세로 스크롤 막기---------------------------------------------------- */
+body {
+    overflow: hidden;
+    touch-action: none;
+}
+/* ------가로세로 스크롤 막기----------------------------------------------------------------- */
 /* ------------컨테이너----------------------컨테이너------------------------------------------ */
 .start_ctn {
     overflow: hidden;
+    
 }
 /* ------------컨테이너----------------------컨테이너-------------------------------------------- */
 /* ------------------밝은 배경--------------------------밝은 배경----------------------- */
@@ -20,48 +26,95 @@
     position: absolute;
     right: 0;
     width: 50vw;
-    height: 100%;
+    height: 100vh;
     background-color: #211B19;
+    overflow: hidden;
 }
 
+.start_img_right {
+    opacity: 30%;
+    filter: grayscale(100%);
+    position: absolute;
+    height: 100%;
+    width: 200%;
+    left: 0; top: 0;
+}
 .start_ani_right {
     transition: transform 4s;
     transform-origin: 0% 100%;
-    transform: rotate(90deg) scale(300%);
+    transform: rotate(90deg) scale(400%);
+}
+
+.start_img_left {
+    opacity: 30%;
+    filter: grayscale(100%);
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    right: 0; top: 0;
 }
 
 .start_backChange_left {
     position: absolute;
     left: 0;
     width: 50vw;
-    height: 100%;
+    height: 100vh;
     background-color: #211B19;
+    overflow: hidden;
 }
 
 .start_ani_left {
     transform-origin: 100% 100%;
     transition: transform 4s;
-    transform: rotate(-90deg) scale(300%);
+    transform: rotate(-90deg) scale(400%);
 }
 /* -------------어두운 배경----------------------------어두운 배경------------------------- */
 
 /* ----------input-------------------------------------input------------------------- */
 .alohomora {
     position: fixed;
-    width: 230px;
+    width: 20%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
     border: none;
     font-size: 50px;
+    text-align: center;
     font-family: 'Ibarra Real Nova';
     /* 한글영어 폰트 지정하기 */
     background-color: transparent;
     color: white;
+    border-bottom: 1px solid white;
 }
 
 .alohomora:focus {
     outline: none;
 }
-/* ----------input-------------------------------------input------------------------- */
+
+.start_error {
+    animation: shaking 300ms
+}
+
+@keyframes shaking {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) translateX(0);
+    }
+  
+    25%,
+    75% {
+      transform: translate(-50%, -50%) translateX(10px);
+    }
+  
+    50% {
+      transform: translate(-50%, -50%) translateX(-10px);
+    }
+  }
+/* event after input none */
+.displayNone {
+    display: none;
+}
+/* event after input none */
+
+/* ----------input-------------------------------------input------------------------------------- */
