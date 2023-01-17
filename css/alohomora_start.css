@@ -45,15 +45,6 @@ body {
     transform: rotate(90deg) scale(400%);
 }
 
-.start_img_left {
-    opacity: 30%;
-    filter: grayscale(100%);
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    left: 0; top: 0;
-}
-
 .start_backChange_left {
     position: absolute;
     left: 0;
@@ -61,6 +52,15 @@ body {
     height: 100vh;
     background-color: #211B19;
     overflow: hidden;
+}
+
+.start_img_left {
+    opacity: 30%;
+    filter: grayscale(100%);
+    position: absolute;
+    height: 100%;
+    width: 200%;
+    left: 0; top: 0;
 }
 
 .start_ani_left {
