@@ -19,8 +19,8 @@ body {
     height: 100%;
     padding: 56px;
     display: grid;
-    grid-template-columns: repeat(20, 4.5%);
-    grid-template-rows: repeat(20, 2%);
+    grid-template-columns: repeat(20, 4.8%);
+    grid-template-rows: repeat(20, 1.7%);
     gap: 0.7%;
 }
 
