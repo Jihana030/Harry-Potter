@@ -15,12 +15,13 @@ body {
     justify-content: space-between;
     width: 96vw;
     margin: 1rem 0.5rem;
+    z-index: 2;
 }
 /* ---------임시 해더-------------------임시 해더----------------------------- */
 
 /* ---------교수사진----------------------교수사진---------------------------- */
 .proHidden{ /*호버이벤트용*/
-    display: none !important;
+    /* display: none !important; */
 }
 
 .pro_cnt { /*이미지 전체 감싸는 div*/
@@ -28,13 +29,15 @@ body {
     height: 100%; */
     padding: 56px;
     display: grid;
-    gap: 0.7%;
+    /* gap: 0.1%; */
     box-sizing: border-box;
+
 }
 
 .proImage{/*이미지의 부모 공통태그*/
     position: relative;
     width: auto;
+    overflow: hidden;
 }
 
 .pro_imgSize { /*이미지 자신*/
@@ -98,36 +101,36 @@ body {
     grid-area: 5/16/11/20;
 }
 .imgNum4 {/*후치*/
-    grid-area: 11/1/15/5;
+    grid-area: 8/1/12/3;
 }
 .imgNum5 {/*맥고나걸*/
-    grid-area: 9/6/13/9;
+    grid-area: 7/6/11/9;
 }
 .imgNum6 {/*매드아이*/
-    grid-area: 12/10/15/14;
+    grid-area: 9/10/12/13;
 }
 .imgNum7 {/*아거스*/
-    grid-area: 19/3/23/6;
+    grid-area: 18/3/22/6;
 }
 .imgNum8 {/*퀴렐*/
-    grid-area: 18/7/22/11;
+    grid-area: 18/7/21/11;
 }
 .imgNum9 {/*슬러그혼*/
-    grid-area: 19/13/23/16;
+    grid-area: 17/13/21/16;
 }
 .imgNum10 {/*루핀*/
     grid-area: 17/17/20/21;
 }
 .imgNum11 {/*스네이프*/
-    grid-area: 24/2/28/5;
+    grid-area: 23/2/27/6;
 }
 .imgNum12 {/*포피 폼프리*/
-    grid-area: 23/8/28/12;
+    grid-area: 24/8/28/11;
 }
 .imgNum13 {/*포모나 스프라우트*/
-    grid-area: 25/13/28/17;
+    grid-area: 25/14/28/18;
 }
 .imgNum14 {/*록하트*/
-    grid-area: 23/19/27/22;
+    grid-area: 22/19/26/22;
 }
 /*---------교수사진 위치-------------------교수사진 위치------------------------*/
