@@ -1,5 +1,13 @@
 *{margin: 0; padding: 0;}
 
+body {
+    width: 100%;
+    background-color: #E7E3DD;
+    /* overflow-x: hidden; */
+    box-sizing: border-box;
+}
+
+/* ---------임시 해더-------------------임시 해더----------------------------- */
 .pro_header_cnt {
     position: absolute;
     display: flex;
@@ -8,69 +16,118 @@
     width: 96vw;
     margin: 1rem 0.5rem;
 }
+/* ---------임시 해더-------------------임시 해더----------------------------- */
 
-body {
-    width: 100%;
-    background-color: #E7E3DD;
+/* ---------교수사진----------------------교수사진---------------------------- */
+.proHidden{ /*호버이벤트용*/
+    display: none !important;
 }
 
-.pro_cnt {
-    width: 100%;
-    height: 100%;
+.pro_cnt { /*이미지 전체 감싸는 div*/
+    /* width: 100%;
+    height: 100%; */
     padding: 56px;
     display: grid;
-    grid-template-columns: repeat(20, 4.5%);
-    grid-template-rows: repeat(20, 2%);
     gap: 0.7%;
+    box-sizing: border-box;
 }
 
-.pro_cnt::before {
+.proImage{/*이미지의 부모 공통태그*/
+    position: relative;
+    width: auto;
+}
+
+.pro_imgSize { /*이미지 자신*/
+    height: 100%;
+    width: auto;
+}
+
+.pro_hover{/*이미지 호버시 보이는css*/
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0; width: 100%; height: 100%;
+    color: white;
+    font-family: 'Eulyoo1945';
+    font-size: 16px;
+    line-height: 1.8rem;
+    background-color: #25252540;
+}
+
+.pro_textCnt {/*기숙사로고제외 모두*/
+    position: absolute;
+    bottom: 20px;
+    left: 18px;
+}
+
+.pro_house {/*기숙사 로고*/
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 26px;
+    top: 18px;
+}
+
+.pro_name {/*이름*/
+    font-size: 26px;
+    width: 17rem;
+    border-bottom: 1px solid white;
+}
+
+.pro_years {/*재임년도*/
+    font-size: 14px;
+}
+
+.pro_cnt::before {/*배경에 종이질감을 넣으려는 시도*/
     background-image: url('/harry_potter_project/image/paper_big.jpg');
     opacity: 40%;
 }
+/* ---------교수사진----------------------교수사진---------------------------- */
 
-.imgNum0 {
+/*---------교수사진 위치-------------------교수사진 위치------------------------*/
+.imgNum0 {/*해그리드*/
     grid-area: 2/2/6/4;
 }
-.imgNum1 {
-    grid-area: 3/7/6/11;
+.imgNum1 {/*플리트윅*/
+    grid-area: 3/7/6/10;
 }
-.imgNum2 {
+.imgNum2 {/*트릴로니*/
     grid-area: 4/12/8/14;
 }
-.imgNum3 {
+.imgNum3 {/*덤블도어*/
     grid-area: 5/16/11/20;
 }
-.imgNum4 {
+.imgNum4 {/*후치*/
     grid-area: 11/1/15/5;
 }
-.imgNum5 {
+.imgNum5 {/*맥고나걸*/
     grid-area: 9/6/13/9;
 }
-.imgNum6 {
+.imgNum6 {/*매드아이*/
     grid-area: 12/10/15/14;
 }
-.imgNum7 {
+.imgNum7 {/*아거스*/
     grid-area: 19/3/23/6;
 }
-.imgNum8 {
+.imgNum8 {/*퀴렐*/
     grid-area: 18/7/22/11;
 }
-.imgNum9 {
+.imgNum9 {/*슬러그혼*/
     grid-area: 19/13/23/16;
 }
-.imgNum10 {
+.imgNum10 {/*루핀*/
     grid-area: 17/17/20/21;
 }
-.imgNum11 {
-    grid-area: 23/2/27/6;
+.imgNum11 {/*스네이프*/
+    grid-area: 24/2/28/5;
 }
-.imgNum12 {
+.imgNum12 {/*포피 폼프리*/
     grid-area: 23/8/28/12;
 }
-.imgNum13 {
-    grid-area: 23/13/26/17;
+.imgNum13 {/*포모나 스프라우트*/
+    grid-area: 25/13/28/17;
 }
-.imgNum14 {
+.imgNum14 {/*록하트*/
     grid-area: 23/19/27/22;
 }
+/*---------교수사진 위치-------------------교수사진 위치------------------------*/
