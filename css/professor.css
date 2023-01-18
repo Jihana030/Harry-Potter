@@ -21,7 +21,7 @@ body {
 
 /* ---------교수사진----------------------교수사진---------------------------- */
 .proHidden{ /*호버이벤트용*/
-    display: none !important;
+    /* display: none !important; */
 }
 
 .pro_cnt { /*이미지 전체 감싸는 div*/
@@ -31,11 +31,13 @@ body {
     display: grid;
     /* gap: 0.1%; */
     box-sizing: border-box;
+
 }
 
 .proImage{/*이미지의 부모 공통태그*/
     position: relative;
     width: auto;
+    overflow: hidden;
 }
 
 .pro_imgSize { /*이미지 자신*/
@@ -90,7 +92,7 @@ body {
     grid-area: 2/2/6/4;
 }
 .imgNum1 {/*플리트윅*/
-    grid-area: 3/7/6/11;
+    grid-area: 3/7/6/10;
 }
 .imgNum2 {/*트릴로니*/
     grid-area: 4/12/8/14;
