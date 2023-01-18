@@ -45,6 +45,19 @@
             imgDiv.addEventListener('mouseout', e=>{
                 imfoDiv.classList.toggle('proHidden', true)
             })
+            // -------mouse trust event-----------------------------mouse trust event-----------------
+            
+            pro_img_cnt.addEventListener("mousemove", (e) => {
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                // imgDiv.style.left = mouseX + 'px';
+                // imgDiv.style.top = mouseY + 'px';
+                let width = window.innerWidth / 2;
+                // let height = (window.innerHeight*0.001) ;
+                let mouseMoved2 = ((width - e.pageX));
+                let mouseMoved3 = ((width - e.pageY*2.8));
+                imgDiv.style.transform = 'translate(' + mouseMoved2 + 'px, ' + mouseMoved3 + 'px)';
+            });
         });
     })
 
