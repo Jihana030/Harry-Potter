@@ -23,7 +23,6 @@
             imfoDiv.style.height=`${ele.height}`
             imgDiv.style.width=`${ele.width}`
             imgDiv.style.height=`${ele.height}`
-            // imgDiv.style.paddingTop=`${ele.height} / ${ele.width} * ${pro_img_cnt.style.width}`;
             imfoDiv.innerHTML=`
                 ${house()}
                 <div class='pro_textCnt'>
@@ -50,16 +49,16 @@
             imgDiv.addEventListener('mouseout', e=>{
                 imfoDiv.classList.toggle('proHidden', true)
             })
-            // -------mouse trust event-----------------------------mouse trust event-----------------
             
-            // pro_img_cnt.addEventListener("mousemove", (e) => {
-            //     const mouseX = e.clientX;
-            //     const mouseY = e.clientY;
-            //     let width = window.innerWidth / 2;
-            //     let mouseMoved2 = ((width - e.pageX));
-            //     let mouseMoved3 = ((width - e.pageY*2.8));
-            //     imgDiv.style.transform = 'translate(' + mouseMoved2 + 'px, ' + mouseMoved3 + 'px)';
-            // });
+            // -------mouse trust event-----------------------------mouse trust event-----------------
+            pro_img_cnt.addEventListener("mousemove", (e) => {
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                let width = window.innerWidth / 2;
+                let mouseMoved2 = ((width - e.pageX));
+                let mouseMoved3 = ((width - e.pageY*2.8));
+                imgDiv.style.transform = 'translate(' + mouseMoved2 + 'px, ' + mouseMoved3 + 'px)';
+            });
         });
     })
 
