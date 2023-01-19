@@ -1,0 +1,17 @@
+*{
+    margin: 0; padding: 0;
+}
+
+body{
+    /* overflow: auto; */
+    white-space: nowrap;
+    -ms-overflow-style: none;
+}
+    
+::-webkit-scrollbar {
+    display: none;
+}
+
+.his_cnt {
+
+}
