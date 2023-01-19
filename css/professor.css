@@ -25,7 +25,7 @@ body::-webkit-scrollbar {/*스크롤바 막음*/
 
 /* ---------교수사진----------------------교수사진---------------------------- */
 .proHidden{ /*호버이벤트용*/
-    /* display: none !important; */
+    display: none !important;
 }
 
 .pro_cnt { /*이미지 전체 감싸는 div*/
@@ -124,7 +124,7 @@ body::-webkit-scrollbar {/*스크롤바 막음*/
     grid-area: 18/3/22/6;
 }
 .imgNum8 {/*퀴렐*/
-    grid-area: 18/7/21/11;
+    grid-area: 18/8/21/12;
 }
 .imgNum9 {/*슬러그혼*/
     grid-area: 17/13/21/16;
