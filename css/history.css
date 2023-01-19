@@ -1,11 +1,21 @@
-*{
-    margin: 0; padding: 0;
+*{margin: 0; padding: 0;}
+
+:root {
+    --font-e: 'Eulyoo1945';
+    --font-i: 'Ibarra Real Nova';
+}
+
+@font-face {
+    font-family: 'Eulyoo1945';
+    src: url();
+    unicode-range: U+AC00-D7A3;
 }
 
 body{
-    /* overflow: auto; */
+    overflow-x: scroll;
     white-space: nowrap;
     -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
 }
     
 ::-webkit-scrollbar {
@@ -13,5 +23,76 @@ body{
 }
 
 .his_cnt {
+    display: flex;
+    flex-direction: row;
+    background-color: #F0EDE8;
+}
 
+.his_infoCnt {
+    background-color: #E4DCD0;
+}
+
+.his_infoTitleCnt {
+    text-align: center;
+    position: relative;
+    background-image: url(../../image/logo_2-w.svg.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    font-family: var(--font-e);
+}
+
+.his_detailCnt {
+    font-size: 1.2rem;
+}
+
+.his_navCnt {
+    display: flex;
+    flex-direction: row;
+    font-family: var(--font-i);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid #B5AAA0;
+}
+
+.his_yearCnt {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.his_yearFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-i);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    border-right: 1px solid #B5AAA0;
+}
+
+.his_title {
+    display: flex;
+    flex-direction: column;
+}
+
+.his_titleTxt {
+    font-family: var(--font-i);
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 96px;
+    text-align: center;
+}
+
+.his_Our {
+    padding-right: 65%;
+}
+
+.his_History {
+    padding-left: 20%;
 }
