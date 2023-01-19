@@ -19,6 +19,11 @@
             imgDiv.classList.add('proImage', `imgNum${i}`);
             image.src=`${ele.image}`;
             image.classList.add('pro_imgSize')
+            imfoDiv.style.width=`${ele.width}`
+            imfoDiv.style.height=`${ele.height}`
+            imgDiv.style.width=`${ele.width}`
+            imgDiv.style.height=`${ele.height}`
+            // imgDiv.style.paddingTop=`${ele.height} / ${ele.width} * ${pro_img_cnt.style.width}`;
             imfoDiv.innerHTML=`
                 ${house()}
                 <div class='pro_textCnt'>
@@ -35,7 +40,7 @@
                 if(ele.house){
                     return `<img class='pro_house' src="${ele.house}"></img>`
                 } return '';
-            }
+            };
             imgDiv.append(image);
             imgDiv.append(imfoDiv);
             // hover event
@@ -50,10 +55,7 @@
             // pro_img_cnt.addEventListener("mousemove", (e) => {
             //     const mouseX = e.clientX;
             //     const mouseY = e.clientY;
-            //     // imgDiv.style.left = mouseX + 'px';
-            //     // imgDiv.style.top = mouseY + 'px';
             //     let width = window.innerWidth / 2;
-            //     // let height = (window.innerHeight*0.001) ;
             //     let mouseMoved2 = ((width - e.pageX));
             //     let mouseMoved3 = ((width - e.pageY*2.8));
             //     imgDiv.style.transform = 'translate(' + mouseMoved2 + 'px, ' + mouseMoved3 + 'px)';
