@@ -4,6 +4,8 @@
 :root {
     --font-e: 'Eulyoo1945';
     --font-i: 'Ibarra Real Nova';
+    --font-size-nav: 1.2vw;
+    --border-color: 1px solid #B5AAA0;
 }
 
 /* @font-face {
@@ -26,7 +28,6 @@ body{
 
 /* 전체 감싼 cnt */
 .his_cnt {
-    width: 100%;
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -38,22 +39,24 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: #E4DCD0;
     flex-shrink: 0;
     /* flex-grow: 2; */
-    width: 30%;
+    position: relative;
+    background-color: #E4DCD0;
+    width: 30vw;
     overflow: hidden;
+    color: #333;
+    border-right: 1px solid #B5AAA0;
 }
 
 .his_infoTitleCnt::before {
     content: "";
     position: absolute;
     background-image: url(../../image/logo_2-w.svg.png);
-    background-size: 80%;
+    background-size: 18vw;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
-    top: -5vw;
+    top: -8vw;
     right: -10vw;
     bottom: 10vw;
     left: 17vw;
@@ -81,7 +84,7 @@ body{
 }
 
 .his_Our { /*타이틀 개별 클래스*/
-    padding-top: 9vw;
+    padding-top: 9vh;
     padding-right: 13vw;
 }
 
@@ -91,7 +94,9 @@ body{
 
 /* 타이틀과 디테일 사이 선 */
 .his_line {
-    padding: 10% 0;
+    padding: 4vh 0;
+    height: 11vh;
+    width: 2vw;
 }
 
 /* our history 디테일 cnt */
@@ -105,16 +110,21 @@ body{
 }
 /* 연혁 네비 */
 .his_navCnt {
+    position: absolute;
+    bottom: 0;
+    width: 30vw;
     display: flex;
     flex-direction: row;
-    font-family: var(--font-i);
-    font-weight: 400;
-    font-style: italic;
-    font-size: 24px;
-    line-height: 30px;
+    justify-content: space-around;
+    align-items: center;
     text-align: center;
-    justify-content: center;
-    border: 1px solid #B5AAA0;
+    font-family: var(--font-i);
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--font-size-nav);
+    line-height: 6vh;
+    border: var(--border-color);
+    color: #706357;
 }
 
 /* 도입제외 연혁 cnt */
@@ -123,15 +133,42 @@ body{
     flex-direction: row;
     text-align: center;
 }
-/* 세기별 cnt */
+/* 각 세기별 cnt */
 .his_yearFlex {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     font-family: var(--font-i);
     font-style: italic;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 30px;
-    border-right: 1px solid #B5AAA0;
+    font-size: var(--font-size-nav);
+    line-height: 6vh;
+    border-right: var(--border-color);
+    color: #706357;
+}
+
+/* 세기 안 nav */
+.his_year {
+    padding: 0 3vw;
+    border-top: var(--border-color);
+    border-bottom: var(--border-color);
+}
+
+/* 연혁 사이 이미지 부모*/
+.his_imgCnt {
+    position: relative;
+    border-right: var(--border-color);
+    height: 100%;
+    width: 20vw;
+    overflow: hidden;
+    text-align: center;
+}
+
+.his_img {
+    position: absolute;
+    right: -50%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
 }
