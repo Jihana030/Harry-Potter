@@ -5,7 +5,10 @@
     --font-e: 'Eulyoo1945';
     --font-i: 'Ibarra Real Nova';
     --font-size-nav: 1.2vw;
+    --font-txt-color: #333;
+    --font-nav-color: #706357;
     --border-color: 1px solid #B5AAA0;
+    --width-start: 40vw;
 }
 
 /* @font-face {
@@ -43,10 +46,11 @@ body{
     /* flex-grow: 2; */
     position: relative;
     background-color: #E4DCD0;
-    width: 30vw;
+    width: var(--width-start);
     overflow: hidden;
-    color: #333;
-    border-right: 1px solid #B5AAA0;
+    color: var(--font-txt-color);
+    border-right: var(--border-color);
+    z-index: 1;
 }
 
 .his_infoTitleCnt::before {
@@ -56,10 +60,10 @@ body{
     background-size: 18vw;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
-    top: -8vw;
-    right: -10vw;
+    top: -6vw;
+    right: -3vw;
     bottom: 10vw;
-    left: 17vw;
+    left: 26vw;
     opacity: 50%;
 }
 /* our history 타이틀문구 */
@@ -112,11 +116,10 @@ body{
 .his_navCnt {
     position: absolute;
     bottom: 0;
-    width: 30vw;
+    width: var(--width-start);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
     text-align: center;
     font-family: var(--font-i);
     font-style: italic;
@@ -124,7 +127,7 @@ body{
     font-size: var(--font-size-nav);
     line-height: 6vh;
     border: var(--border-color);
-    color: #706357;
+    color: var(--font-nav-color);
 }
 
 /* 도입제외 연혁 cnt */
@@ -144,7 +147,22 @@ body{
     font-size: var(--font-size-nav);
     line-height: 6vh;
     border-right: var(--border-color);
-    color: #706357;
+    color: var(--font-nav-color);
+    overflow: hidden;
+    text-align: center;
+}
+/* 연혁 가운데 선 */
+.his_lineLong::before {
+    background-image: url('../../image/Line3.svg');
+    content: "";
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    top: 50vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 /* 세기 안 nav */
@@ -166,9 +184,10 @@ body{
 
 .his_img {
     position: absolute;
-    right: -50%;
+    right: -70%;
     height: 100%;
     display: block;
     object-fit: contain;
     object-position: center;
+    z-index: 1;
 }
