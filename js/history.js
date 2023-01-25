@@ -14,26 +14,27 @@
     }
     const his_yearCnt = document.querySelector('.his_yearCnt');
     const his_yearFlex = document.querySelectorAll('.his_yearFlex')
-    const his_upDownCnt = document.querySelector('.his_upDownCnt')
+    
     // json 뿌리기
     loadItems().then((items)=>{
         items.forEach((ele, index) => {
             for(let i=0; i<his_yearFlex.length; i++){
                 if(his_yearFlex[i].classList[0] === ele.century){
-                    if(!index%2){
-                        // text기준 down 부모
+                    if(!(index%2)){
                         const hisDown = document.createElement('div');
                         hisDown.classList.add('his_down');
                         // 내용을 담을 부모, 이미지
                         const downDiv = document.createElement('div');
+                        downDiv.classList.add('his_downCnt');
                         const downImg = document.createElement('img');
                         // 사이 가름선
                         const lineM = document.createElement('img');
-                        lineM.src = '../image/LineM.svg'
+                        lineM.src = './image/LineM.svg'
                         lineM.classList.add('his_lineM');
+                        // 에피소드별 이미지
                         downImg.src=`${ele.image}`
                         downImg.classList.add('his_yearImg');
-                        downDiv.classList.add('his_downCnt');
+                        
                         downDiv.innerHTML = `
                             <div class="his_detailY">${ele.years}</div>
                             <div class="his_detailTcnt">
@@ -48,17 +49,20 @@
                                 <div class="his_detailD">${ele.detail4}</div>
                             </div>
                         `
-                        downDiv.insertBefore(downImg, downDiv.firstChild);
+                        downDiv.insertBefore(downImg, downDiv.firstChild);//이미지 배치
+                        //이음선 위치
                         var lineCh = downDiv.firstChild.nextSibling;
                         lineCh.after(lineM);
                         hisDown.append(downDiv);
-                        his_upDownCnt.append(hisDown);
+                        his_yearFlex[i].prepend(hisDown);
                     } else {
+                        const his_upDownCnt = document.createElement('div')
+                        his_upDownCnt.classList.add('his_upDownCnt');
                         const hisUp = document.createElement('div');
                         hisUp.classList.add('his_up');
                         const UpDiv = document.createElement('div');
                         const lineM = document.createElement('img');
-                        lineM.src = '../image/LineM.svg'
+                        lineM.src = './image/LineM.svg'
                         lineM.classList.add('his_lineM');
                         const UpImg = document.createElement('img');
                         UpImg.src=`${ele.image}`
@@ -80,12 +84,14 @@
                         `
                         var lineCh = UpDiv.lastChild.previousSibling;
                         lineCh.after(lineM);
-                        UpDiv.append(UpImg);
+                        UpDiv.append(UpImg);//이미지 배치
                         hisUp.append(UpDiv);
-                        his_upDownCnt.append(hisUp);
+                        his_yearFlex[i].prepend(hisUp);
                     }
                 }
             }
         });
     })
+
+
 })()
