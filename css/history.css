@@ -140,7 +140,6 @@ body{
 .his_yearFlex {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     font-family: var(--font-i);
     font-style: italic;
     font-weight: 400;
@@ -150,6 +149,7 @@ body{
     color: var(--font-nav-color);
     overflow: hidden;
     text-align: center;
+    width: 100%;
 }
 /* 연혁 가운데 선 */
 .his_lineLong::before {
@@ -170,6 +170,7 @@ body{
     padding: 0 3vw;
     border-top: var(--border-color);
     border-bottom: var(--border-color);
+    width: 100%;
 }
 
 /* 연혁 사이 이미지 부모*/
@@ -190,4 +191,28 @@ body{
     object-fit: contain;
     object-position: center;
     z-index: 1;
+}
+
+/*에피소드 이미지*/
+.his_yearImg {
+    width: 218px;
+    height: 218px;
+    object-fit: cover;
+}
+
+/*에피소드 조부모*/
+.his_upDownCnt {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto; height: 100%;
+    padding: 0 7vw;
+}
+
+/* 에피소드 부모 */
+.his_downCnt, .his_upCnt {
+    padding: 0 7vw;
+    width: auto;
+    height: 100%;
 }
