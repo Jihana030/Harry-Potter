@@ -21,12 +21,16 @@
             for(let i=0; i<his_yearFlex.length; i++){
                 if(his_yearFlex[i].classList[0] === ele.century){
                     if(!index%2){
+                        // text기준 down 부모
                         const hisDown = document.createElement('div');
                         hisDown.classList.add('his_down');
+                        // 내용을 담을 부모, 이미지
                         const downDiv = document.createElement('div');
                         const downImg = document.createElement('img');
+                        // 사이 가름선
                         const lineM = document.createElement('img');
-                        lineM.src = '../image/lineM.svg'
+                        lineM.src = '../image/LineM.svg'
+                        lineM.classList.add('his_lineM');
                         downImg.src=`${ele.image}`
                         downImg.classList.add('his_yearImg');
                         downDiv.classList.add('his_downCnt');
@@ -45,12 +49,17 @@
                             </div>
                         `
                         downDiv.insertBefore(downImg, downDiv.firstChild);
+                        var lineCh = downDiv.firstChild.nextSibling;
+                        lineCh.after(lineM);
                         hisDown.append(downDiv);
                         his_upDownCnt.append(hisDown);
                     } else {
                         const hisUp = document.createElement('div');
                         hisUp.classList.add('his_up');
                         const UpDiv = document.createElement('div');
+                        const lineM = document.createElement('img');
+                        lineM.src = '../image/LineM.svg'
+                        lineM.classList.add('his_lineM');
                         const UpImg = document.createElement('img');
                         UpImg.src=`${ele.image}`
                         UpImg.classList.add('his_yearImg');
@@ -69,6 +78,8 @@
                             </div>
                             <div class="his_detailY">${ele.years}</div>
                         `
+                        var lineCh = UpDiv.lastChild.previousSibling;
+                        lineCh.after(lineM);
                         UpDiv.append(UpImg);
                         hisUp.append(UpDiv);
                         his_upDownCnt.append(hisUp);

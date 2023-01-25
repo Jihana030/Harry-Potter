@@ -219,6 +219,7 @@ body{
 }
 .his_downCnt {
     padding-bottom: 11vh;
+    z-index: 9999;
 }
 
 .his_upCnt {
@@ -259,4 +260,9 @@ body{
     font-size: 16px;
     line-height: 19px;
     letter-spacing: -0.01em;
+}
+
+.his_lineM {
+    display: block;
+    margin-left: 50%;
 }
