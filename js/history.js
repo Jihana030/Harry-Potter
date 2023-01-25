@@ -54,7 +54,7 @@
                         var lineCh = downDiv.firstChild.nextSibling;
                         lineCh.after(lineM);
                         hisDown.append(downDiv);
-                        his_yearFlex[i].prepend(hisDown);
+                        his_yearFlex[i].append(hisDown);
                     } else {
                         const his_upDownCnt = document.createElement('div')
                         his_upDownCnt.classList.add('his_upDownCnt');
@@ -86,7 +86,7 @@
                         lineCh.after(lineM);
                         UpDiv.append(UpImg);//이미지 배치
                         hisUp.append(UpDiv);
-                        his_yearFlex[i].prepend(hisUp);
+                        his_yearFlex[i].append(hisUp);
                     }
                 }
             }
