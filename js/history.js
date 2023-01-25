@@ -18,44 +18,50 @@
     // json 뿌리기
     loadItems().then((items)=>{
         items.forEach((ele, i) => {
-            if(i%2 || i===0){
-                const hisDown = document.createElement('div');
-                hisDown.classList.add('his_down');
-                const downDiv = document.createElement('div');
-                const downImg = document.createElement('img');
-                downImg.src=`${ele.image}`
-                downDiv.innerHTML = `
-                    <div>${ele.years}</div>
-                    <div>${ele.title1}</div>
-                    <div>${ele.title2}</div>
-                    <div>${ele.title3}</div>
-                    <div>${ele.detail1}</div>
-                    <div>${ele.detail2}</div>
-                    <div>${ele.detail3}</div>
-                    <div>${ele.detail4}</div>
-                    <div>${downImg}</div>
-                `
-                hisDown.append(downDiv);
-                his_upDownCnt.append(hisDown);
-            } else {
-                const hisUp = document.createElement('div');
-                hisUp.classList.add('his_up');
-                const UpDiv = document.createElement('div');
-                const UpImg = document.createElement('img');
-                UpImg.src=`${ele.image}`
-                UpDiv.innerHTML = `
-                    <div>${UpImg}</div>
-                    <div>${ele.title1}</div>
-                    <div>${ele.title2}</div>
-                    <div>${ele.title3}</div>
-                    <div>${ele.detail1}</div>
-                    <div>${ele.detail2}</div>
-                    <div>${ele.detail3}</div>
-                    <div>${ele.detail4}</div>
-                    <div>${ele.years}</div>
-                `
-                hisUp.append(UpDiv);
-                his_upDownCnt.append(hisUp);
+            if(his_yearFlex.classList[0] === ele.century){
+                if(!i%2){
+                    const hisDown = document.createElement('div');
+                    hisDown.classList.add('his_down');
+                    const downDiv = document.createElement('div');
+                    const downImg = document.createElement('img');
+                    downImg.src=`${ele.image}`
+                    downImg.classList.add('his_yearImg');
+                    downDiv.classList.add('his_downCnt');
+                    downDiv.innerHTML = `
+                        <div>${ele.years}</div>
+                        <div>${ele.title1}</div>
+                        <div>${ele.title2}</div>
+                        <div>${ele.title3}</div>
+                        <div>${ele.detail1}</div>
+                        <div>${ele.detail2}</div>
+                        <div>${ele.detail3}</div>
+                        <div>${ele.detail4}</div>
+                    `
+                    downDiv.append(downImg);
+                    hisDown.append(downDiv);
+                    his_upDownCnt.append(hisDown);
+                } else {
+                    const hisUp = document.createElement('div');
+                    hisUp.classList.add('his_up');
+                    const UpDiv = document.createElement('div');
+                    const UpImg = document.createElement('img');
+                    UpImg.src=`${ele.image}`
+                    UpImg.classList.add('his_yearImg');
+                    UpDiv.classList.add('his_upCnt');
+                    UpDiv.innerHTML = `
+                        <div>${ele.title1}</div>
+                        <div>${ele.title2}</div>
+                        <div>${ele.title3}</div>
+                        <div>${ele.detail1}</div>
+                        <div>${ele.detail2}</div>
+                        <div>${ele.detail3}</div>
+                        <div>${ele.detail4}</div>
+                        <div>${ele.years}</div>
+                    `
+                    UpDiv.append(UpImg);
+                    hisUp.append(UpDiv);
+                    his_upDownCnt.append(hisUp);
+                }
             }
         });
     })
