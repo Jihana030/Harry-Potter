@@ -33,10 +33,11 @@
                         lineM.classList.add('his_lineM');
                         // 에피소드별 이미지
                         downImg.src=`${ele.image}`
-                        downImg.classList.add('his_yearImg');
+                        downImg.classList.add('his_yearImg', 'his_downImg');
                         
                         downDiv.innerHTML = `
                             <div class="his_detailY">${ele.years}</div>
+                            <div class="his_lineLong"></div>
                             <div class="his_detailTcnt">
                                 <div class="his_detailT">${ele.title1}</div>
                                 <div class="his_detailT">${ele.title2}</div>
@@ -66,7 +67,7 @@
                         lineM.classList.add('his_lineM');
                         const UpImg = document.createElement('img');
                         UpImg.src=`${ele.image}`
-                        UpImg.classList.add('his_yearImg');
+                        UpImg.classList.add('his_yearImg', 'his_upImg');
                         UpDiv.classList.add('his_upCnt');
                         UpDiv.innerHTML = `
                             <div class="his_detailTcnt">
@@ -81,9 +82,10 @@
                                 <div class="his_detailD">${ele.detail4}</div>
                             </div>
                             <div class="his_detailY">${ele.years}</div>
+                            <div class="his_lineLong"></div>
                         `
                         var lineCh = UpDiv.lastChild.previousSibling;
-                        lineCh.after(lineM);
+                        lineCh.after(lineM);//세로 선
                         UpDiv.append(UpImg);//이미지 배치
                         hisUp.append(UpDiv);
                         his_yearFlex[i].append(hisUp);
