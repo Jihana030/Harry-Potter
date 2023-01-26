@@ -39,12 +39,18 @@ body{
     cursor: -webkit-grab;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 마우스 커서 */
 .his_grabbing {
     cursor: grabbing;
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
 }
 
+/* 배경 종이질감 */
 .his_paper {
     position: absolute;
     background-image: url('../image/paper.jpg');
@@ -52,10 +58,6 @@ body{
     opacity: 40%;
     width: 100%;
     height: 100%;
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 
 /* 전체 감싼 cnt */
