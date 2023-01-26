@@ -95,5 +95,19 @@
         });
     })
 
+    //----원하는 시대로 이동하기----
+    const his_nav = document.querySelectorAll('.his_nav')
 
+    his_nav.forEach((ele, idx) =>{
+        ele.addEventListener('click', e=>{
+            const location = document.querySelector(".his_" + idx + 'nav').offsetLeft;
+            his_cnt.scrollLeft = location;
+        })
+    })
+    
+    // //세로 스크롤(모바일용)
+    // function goToScroll(number) {
+    //     var location = document.querySelector("." + number).offsetTop;
+    //     window.scrollTo({top: location, behavior: 'smooth'});
+    // }
 })()
