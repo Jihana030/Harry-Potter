@@ -140,4 +140,12 @@
       const walk = x - startX;
       his_cnt.scrollLeft = scrollLeft - walk;
     });
+
+    //cursor grab grabbing 
+    his_cnt.addEventListener('mousedown', e=>{
+        his_cnt.classList.add('his_grabbing');
+    })
+    his_cnt.addEventListener('mouseup', e=>{
+        his_cnt.classList.remove('his_grabbing');
+    })
 })()

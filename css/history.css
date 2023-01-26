@@ -16,7 +16,7 @@ a {
     --width-start: 24%;
     --font-size-16: 0.8vw;
     --font-size-20: 1vw;
-    --font-size-28: 1.5vw;
+    --font-size-28: 2.1vh;
     --color-back: #F0EDE8;
     --img-size-y: 15vh;
 }
@@ -34,6 +34,15 @@ body{
     -ms-overflow-style: none;
     scroll-snap-type: x mandatory;
     background-color: var(--color-back);
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.his_grabbing {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
 }
 
 .his_paper {
