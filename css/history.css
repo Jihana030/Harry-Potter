@@ -1,5 +1,10 @@
 *{margin: 0; padding: 0;}
 
+a {
+    text-decoration: none;
+    color: var(--font-txt-color);
+}
+
 /* 지정변수 */
 :root {
     --font-e: 'Eulyoo1945';
@@ -143,6 +148,10 @@ body{
     line-height: 6vh;
     border: var(--border-color);
     color: var(--font-nav-color);
+}
+
+.his_nav {
+    cursor: pointer;
 }
 
 /* -------도입제외 연혁 cnt ----------------------- ------*/
