@@ -2,7 +2,7 @@
 
 a {
     text-decoration: none;
-    color: var(--font-txt-color);
+    color: var(--font-nav-color);
 }
 
 /* 지정변수 */
@@ -16,9 +16,9 @@ a {
     --width-start: 24%;
     --font-size-16: 0.8vw;
     --font-size-20: 1vw;
-    --font-size-28: 1.5vw;
+    --font-size-28: 2.1vh;
     --color-back: #F0EDE8;
-    --img-size-y: 10vw;
+    --img-size-y: 15vh;
 }
 
 /* @font-face {
@@ -34,8 +34,23 @@ body{
     -ms-overflow-style: none;
     scroll-snap-type: x mandatory;
     background-color: var(--color-back);
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 마우스 커서 */
+.his_grabbing {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+/* 배경 종이질감 */
 .his_paper {
     position: absolute;
     background-image: url('../image/paper.jpg');
@@ -43,10 +58,6 @@ body{
     opacity: 40%;
     width: 100%;
     height: 100%;
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 
 /* 전체 감싼 cnt */
@@ -253,14 +264,24 @@ body{
     font-style: normal;
     font-weight: 400;
     line-height: 25px;
-    /* margin: 20px 0; */
     position: absolute;
-    padding: 15px;
-    /* top: calc(50%-15px); */
-    /* left: 0; right: 0; bottom: 0; */
-    /* border: 15px solid #F0EDE840; */
-    /* background-color: var(--color-back); */
     z-index: 1;
+    background-image: url('../image/paper.jpg');
+    mix-blend-mode: inherit;
+    width: 7rem;
+}
+
+.his_detailY::before,.his_detailY::after{
+    /* border-style: solid;
+    width: 3em;
+    margin: 0 1em;
+    opacity: 40%; 
+    border-width: 10px 15px;
+    -moz-border-image: url('../image/paper.jpg') 15 15 15 15 repeat repeat;
+    -webkit-border-image: url('../image/paper.jpg') 15 15 15 15 repeat repeat;
+    -o-border-image: url('../image/paper.jpg') 15 15 15 15 repeat repeat;
+    border-image: url('../image/paper.jpg') 15 15 15 15 repeat repeat;
+    */
 }
 
 .his_detailTcnt {
@@ -292,3 +313,5 @@ body{
     display: block;
     margin: 0 auto;
 }
+
+/* ------------ 미디어쿼리 ---------------------- 미디어쿼리 ----------- */
