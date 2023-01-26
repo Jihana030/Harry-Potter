@@ -110,4 +110,34 @@
     //     var location = document.querySelector("." + number).offsetTop;
     //     window.scrollTo({top: location, behavior: 'smooth'});
     // }
+
+    // -----가로 스크롤 터치하기------
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+  
+    his_cnt.addEventListener('mousedown', e => {
+      isDown = true;
+      his_cnt.classList.add('active');
+      startX = e.pageX - his_cnt.offsetLeft;
+      scrollLeft = his_cnt.scrollLeft;
+    });
+  
+    his_cnt.addEventListener('mouseleave', () => {
+      isDown = false;
+      his_cnt.classList.remove('active');
+    });
+  
+    his_cnt.addEventListener('mouseup', () => {
+      isDown = false;
+      his_cnt.classList.remove('active');
+    });
+  
+    his_cnt.addEventListener('mousemove', e => {
+      if (!isDown) return; 
+      e.preventDefault();
+      const x = e.pageX - his_cnt.offsetLeft;
+      const walk = x - startX;
+      his_cnt.scrollLeft = scrollLeft - walk;
+    });
 })()

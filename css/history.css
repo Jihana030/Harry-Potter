@@ -18,7 +18,7 @@ a {
     --font-size-20: 1vw;
     --font-size-28: 1.5vw;
     --color-back: #F0EDE8;
-    --img-size-y: 10vw;
+    --img-size-y: 15vh;
 }
 
 /* @font-face {
@@ -292,3 +292,5 @@ body{
     display: block;
     margin: 0 auto;
 }
+
+/* ------------ 미디어쿼리 ---------------------- 미디어쿼리 ----------- */
