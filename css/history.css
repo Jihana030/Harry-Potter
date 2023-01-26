@@ -2,7 +2,7 @@
 
 a {
     text-decoration: none;
-    color: var(--font-txt-color);
+    color: var(--font-nav-color);
 }
 
 /* 지정변수 */
@@ -264,14 +264,24 @@ body{
     font-style: normal;
     font-weight: 400;
     line-height: 25px;
-    /* margin: 20px 0; */
     position: absolute;
-    padding: 15px;
-    /* top: calc(50%-15px); */
-    /* left: 0; right: 0; bottom: 0; */
-    /* border: 15px solid #F0EDE840; */
-    /* background-color: var(--color-back); */
     z-index: 1;
+    background-image: url('../image/paper.jpg');
+    mix-blend-mode: inherit;
+    width: 7rem;
+}
+
+.his_detailY::before,.his_detailY::after{
+    /* border-style: solid;
+    width: 3em;
+    margin: 0 1em;
+    opacity: 40%; 
+    border-width: 10px 15px;
+    -moz-border-image: url('../image/paper.jpg') 15 15 15 15 repeat repeat;
+    -webkit-border-image: url('../image/paper.jpg') 15 15 15 15 repeat repeat;
+    -o-border-image: url('../image/paper.jpg') 15 15 15 15 repeat repeat;
+    border-image: url('../image/paper.jpg') 15 15 15 15 repeat repeat;
+    */
 }
 
 .his_detailTcnt {
