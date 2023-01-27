@@ -116,49 +116,85 @@
 
     //----원하는 시대로 이동하기----
     const his_nav = document.querySelectorAll('.his_nav')
-
-    his_nav.forEach((ele, idx) =>{
-        ele.addEventListener('click', e=>{
-            const location = document.querySelector(".his_" + idx + 'nav').offsetLeft;
-            his_cnt.scrollLeft = location;
-        })
-    })
     
-    // //세로 스크롤(모바일용)
-    // function goToScroll(number) {
-    //     var location = document.querySelector("." + number).offsetTop;
-    //     window.scrollTo({top: location, behavior: 'smooth'});
-    // }
-
+        his_nav.forEach((ele, idx) =>{
+            ele.addEventListener('click', e=>{
+                console.log(window.pageYOffset)
+                if(!(windowWidth.matches)){
+                    const location = document.querySelector(".his_" + idx + 'nav').offsetLeft;
+                    his_cnt.scrollLeft = location;
+                } else {
+                    const location = document.querySelector(".his_" + idx + 'nav').getBoundingClientRect().top;
+                    
+                    //his_cnt.scrollTo({top: (location + window.pageYOffset)});
+                    his_cnt.scrollTo({top: location});
+                }
+            })
+        })    
+    
     // -----가로 스크롤 터치하기------
     let isDown = false;
-    let startX;
-    let scrollLeft;
-  
-    his_cnt.addEventListener('mousedown', e => {
-      isDown = true;
-      his_cnt.classList.add('active');
-      startX = e.pageX - his_cnt.offsetLeft;
-      scrollLeft = his_cnt.scrollLeft;
-    });
-  
-    his_cnt.addEventListener('mouseleave', () => {
-      isDown = false;
-      his_cnt.classList.remove('active');
-    });
-  
-    his_cnt.addEventListener('mouseup', () => {
-      isDown = false;
-      his_cnt.classList.remove('active');
-    });
-  
-    his_cnt.addEventListener('mousemove', e => {
-      if (!isDown) return; 
-      e.preventDefault();
-      const x = e.pageX - his_cnt.offsetLeft;
-      const walk = x - startX;
-      his_cnt.scrollLeft = scrollLeft - walk;
-    });
+    if(!(windowWidth.matches)){
+        let startX;
+        let scrollLeft;
+      
+        his_cnt.addEventListener('mousedown', e => {
+          isDown = true;
+          his_cnt.classList.add('active');
+          startX = e.pageX - his_cnt.offsetLeft;
+          scrollLeft = his_cnt.scrollLeft;
+        });
+      
+        his_cnt.addEventListener('mouseleave', () => {
+          isDown = false;
+          his_cnt.classList.remove('active');
+        });
+      
+        his_cnt.addEventListener('mouseup', () => {
+          isDown = false;
+          his_cnt.classList.remove('active');
+        });
+      
+        his_cnt.addEventListener('mousemove', e => {
+          if (!isDown) return; 
+          e.preventDefault();
+          const x = e.pageX - his_cnt.offsetLeft;
+          const walk = x - startX;
+          his_cnt.scrollLeft = scrollLeft - walk;
+        });
+
+    }
+
+    // 세로 스크롤 터치하기
+    if(windowWidth.matches){
+        let startY;
+        let scrollTop;
+    
+        his_cnt.addEventListener('mousedown', e => {
+        isDown = true;
+        his_cnt.classList.add('active');
+        startY = e.pageY - his_cnt.offsetTop;
+        scrollTop = his_cnt.scrollTop;
+        });
+    
+        his_cnt.addEventListener('mouseleave', () => {
+        isDown = false;
+        his_cnt.classList.remove('active');
+        });
+    
+        his_cnt.addEventListener('mouseup', () => {
+        isDown = false;
+        his_cnt.classList.remove('active');
+        });
+    
+        his_cnt.addEventListener('mousemove', e => {
+        if (!isDown) return; 
+        e.preventDefault();
+        const y = e.pageY - his_cnt.offsetTop;
+        const walk = y - startY;
+        his_cnt.scrollTop = scrollTop - walk;
+        });
+    }
 
     //cursor grab grabbing 
     his_cnt.addEventListener('mousedown', e=>{

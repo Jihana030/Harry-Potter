@@ -1,5 +1,6 @@
 *{margin: 0; padding: 0;}
 
+html { scroll-behavior: smooth; }
 a {
     text-decoration: none;
     color: var(--font-nav-color);
@@ -441,5 +442,10 @@ body{
     .his_yearImg {
         width: var(--img-size-y-h);
         height: var(--img-size-y-h);
+    }
+    
+    .his_imgCnt {
+        width: auto;
+        height: 100%;
     }
 }
