@@ -46,8 +46,8 @@ body {
     opacity: 30%;
     filter: grayscale(100%);
     position: absolute;
-    height: 100%;
-    width: 200%;
+    /* height: 100%; */
+    width: 100%;
     right: 0; top: 0;
 }
 .start_ani_right {
@@ -69,8 +69,8 @@ body {
     opacity: 30%;
     filter: grayscale(100%);
     position: absolute;
-    height: 100%;
-    width: 200%;
+    /* height: 100%; */
+    width: 100%;
     left: 0; top: 0;
 }
 
