@@ -50,16 +50,18 @@
                                 <img src='./image/paper.jpg' class="his_border"></img>
                             </div>
                             <div class="his_lineLong"></div>
-                            <div class="his_detailTcnt">
-                                <div class="his_detailT">${ele.title1}</div>
-                                <div class="his_detailT">${ele.title2}</div>
-                                <div class="his_detailT">${ele.title3}</div>
-                            </div>
-                            <div class="his_detailDcnt">
-                                <div class="his_detailD">${ele.detail1}</div>
-                                <div class="his_detailD">${ele.detail2}</div>
-                                <div class="his_detailD">${ele.detail3}</div>
-                                <div class="his_detailD">${ele.detail4}</div>
+                            <div class="his_detCnt">
+                                <div class="his_detailTcnt">
+                                    <div class="his_detailT">${ele.title1}</div>
+                                    <div class="his_detailT">${ele.title2}</div>
+                                    <div class="his_detailT">${ele.title3}</div>
+                                </div>
+                                <div class="his_detailDcnt">
+                                    <div class="his_detailD">${ele.detail1}</div>
+                                    <div class="his_detailD">${ele.detail2}</div>
+                                    <div class="his_detailD">${ele.detail3}</div>
+                                    <div class="his_detailD">${ele.detail4}</div>
+                                </div>
                             </div>
                         `
                         downDiv.insertBefore(downImg, downDiv.firstChild);//이미지 배치
@@ -82,16 +84,18 @@
                         UpImg.classList.add('his_yearImg', 'his_upImg');
                         UpDiv.classList.add('his_upCnt');
                         UpDiv.innerHTML = `
-                            <div class="his_detailTcnt">
-                                <div class="his_detailT">${ele.title1}</div>
-                                <div class="his_detailT">${ele.title2}</div>
-                                <div class="his_detailT">${ele.title3}</div>
-                            </div>
-                            <div class="his_detailDcnt">
-                                <div class="his_detailD">${ele.detail1}</div>
-                                <div class="his_detailD">${ele.detail2}</div>
-                                <div class="his_detailD">${ele.detail3}</div>
-                                <div class="his_detailD">${ele.detail4}</div>
+                            <div class="his_detCnt">
+                                <div class="his_detailTcnt">
+                                    <div class="his_detailT">${ele.title1}</div>
+                                    <div class="his_detailT">${ele.title2}</div>
+                                    <div class="his_detailT">${ele.title3}</div>
+                                </div>
+                                <div class="his_detailDcnt">
+                                    <div class="his_detailD">${ele.detail1}</div>
+                                    <div class="his_detailD">${ele.detail2}</div>
+                                    <div class="his_detailD">${ele.detail3}</div>
+                                    <div class="his_detailD">${ele.detail4}</div>
+                                </div>
                             </div>
                             <div class="his_detailY">
                                 <img src='./image/paper.jpg' class="his_border"></img>
