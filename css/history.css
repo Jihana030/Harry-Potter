@@ -29,10 +29,6 @@ a {
 
 /* 바디에 스크롤 조절 */
 body{
-    overflow-x: scroll;
-    white-space: nowrap;
-    -ms-overflow-style: none;
-    scroll-snap-type: x mandatory;
     background-color: var(--color-back);
     /* 커서 모양 */
     cursor: grab;
@@ -43,10 +39,6 @@ body{
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 
 /* 마우스 커서 */
@@ -72,7 +64,6 @@ body{
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    
 }
 /* our history 전체 감싼 cnt */
 .his_infoCnt {
@@ -326,3 +317,18 @@ body{
 }
 
 /* ------------ 미디어쿼리 ---------------------- 미디어쿼리 ----------- */
+@media (max-width: 850px){
+    .his_cnt {
+        flex-direction: column;
+    }
+
+    .his_infoCnt {
+        width: 100%;
+    }
+
+    .his_yearCnt {
+        flex-direction: row;
+    }
+
+
+}
