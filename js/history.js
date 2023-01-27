@@ -30,13 +30,16 @@
                         // 사이 가름선
                         const lineM = document.createElement('img');
                         lineM.src = './image/LineM.svg'
-                        lineM.classList.add('his_lineM');
+                        lineM.classList.add('his_lineM', 'his_lineMdown');
                         // 에피소드별 이미지
                         downImg.src=`${ele.image}`
                         downImg.classList.add('his_yearImg', 'his_downImg');
                         
                         downDiv.innerHTML = `
-                            <div class="his_detailY">${ele.years}</div>
+                            <div class="his_detailY">
+                                ${ele.years}
+                                <img src='./image/paper.jpg' class="his_border"></img>
+                            </div>
                             <div class="his_lineLong"></div>
                             <div class="his_detailTcnt">
                                 <div class="his_detailT">${ele.title1}</div>
@@ -64,7 +67,7 @@
                         const UpDiv = document.createElement('div');
                         const lineM = document.createElement('img');
                         lineM.src = './image/LineM.svg'
-                        lineM.classList.add('his_lineM');
+                        lineM.classList.add('his_lineM', 'his_lineMup');
                         const UpImg = document.createElement('img');
                         UpImg.src=`${ele.image}`
                         UpImg.classList.add('his_yearImg', 'his_upImg');
@@ -81,7 +84,10 @@
                                 <div class="his_detailD">${ele.detail3}</div>
                                 <div class="his_detailD">${ele.detail4}</div>
                             </div>
-                            <div class="his_detailY">${ele.years}</div>
+                            <div class="his_detailY">
+                                <img src='./image/paper.jpg' class="his_border"></img>
+                                ${ele.years}
+                            </div>
                             <div class="his_lineLong"></div>
                         `
                         var lineCh = UpDiv.lastChild.previousSibling;
