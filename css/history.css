@@ -1,5 +1,6 @@
 *{margin: 0; padding: 0;}
 
+html { scroll-behavior: smooth; }
 a {
     text-decoration: none;
     color: var(--font-nav-color);
@@ -18,7 +19,7 @@ a {
     --border-color: 1px solid #B5AAA0;
     --width-start: 24%;
     --font-size-16: 0.8vw;
-    --font-size-20: 1vw;
+    --font-size-20: 1vh;
     --font-size-20-h: 2.2vh;
     --font-size-28: 2.1vh;
     --color-back: #F0EDE8;
@@ -441,5 +442,10 @@ body{
     .his_yearImg {
         width: var(--img-size-y-h);
         height: var(--img-size-y-h);
+    }
+    
+    .his_imgCnt {
+        width: auto;
+        height: 100%;
     }
 }
