@@ -1,10 +1,19 @@
 (function(){
     'use strict'
-    // 마우스 휠 가로스크롤
     const his_cnt = document.querySelector('.his_cnt')
-    window.addEventListener('wheel', (e) => {
-        his_cnt.scrollLeft += e.deltaY;
-    });
+    //미디어쿼리
+    let windowWidth = window.matchMedia('screen and (max-width: 850px)');
+    // 마우스 휠 가로스크롤 850보다 클 때만.
+    if(!(windowWidth.matches)){
+        window.addEventListener('wheel', (e) => {
+            his_cnt.scrollLeft += e.deltaY;
+        });
+    } else {
+        window.addEventListener('wheel', (e) => {
+            his_cnt.scrollTop += e.deltaY;
+        });
+
+    }
 
     // json 가져오기
     function loadItems(){
