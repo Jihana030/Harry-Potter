@@ -46,8 +46,10 @@ body{
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;
+    /* 가로스크롤 안보이게 */
     scrollbar-width: none;
     -ms-overflow-style: none;
+    overflow-x: scroll;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -331,6 +333,9 @@ body::-webkit-scrollbar {
 
 /* ------------ 미디어쿼리 ---------------------- 미디어쿼리 ----------- */
 @media (max-width: 850px){
+    body {
+        overflow-y: scroll;
+    }
     .his_cnt {
         flex-direction: column;
     }

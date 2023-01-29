@@ -6,26 +6,101 @@
     
     const hisStart = document.querySelector('.his_infoTitleCnt'); //our history
     const hisNav = document.querySelector('.his_navCnt') //nav
-    window.addEventListener('scroll', (e) => {
+    let isDown = false;
+    window.addEventListener('wheel', (e) => {
         // 마우스 휠 가로스크롤 850보다 클 때만.
         if(!(windowWidth.matches)){
+            his_cnt.scrollBy({
+                left: e.deltaY
+              });
             // his_cnt.scrollLeft += e.scrollX;
+
+            // -----가로 스크롤 터치하기------
+            let startX;
+            let scrollLeft;
+        
+            his_cnt.addEventListener('mousedown', e => {
+                isDown = true;
+                his_cnt.classList.add('active');
+                startX = e.pageX - his_cnt.offsetLeft;
+                scrollLeft = his_cnt.scrollLeft;
+            });
+        
+            his_cnt.addEventListener('mouseleave', () => {
+                isDown = false;
+            his_cnt.classList.remove('active');
+            });
+        
+            his_cnt.addEventListener('mouseup', () => {
+                isDown = false;
+            his_cnt.classList.remove('active');
+            });
+        
+            his_cnt.addEventListener('mousemove', e => {
+                if (!isDown) return; 
+                e.preventDefault();
+                const x = e.pageX - his_cnt.offsetLeft;
+                const walk = x - startX;
+                his_cnt.scrollLeft = scrollLeft - walk;
+            });
         } else {
             // window.scrollTo(0, 0)
             // window.scrollBy(0,100)
             // his_cnt.scrollTop += e.scrollY;
+            his_cnt.scrollBy({
+                top: e.deltaY
+              });
+
+            // 세로일때 nav fix 
+            let scroll = his_cnt.scrollTop;
+            let high = hisStart.scrollHeight;
+            if(scroll === high){
+                hisNav.classList.add('his_fix');
+            }else{
+                hisNav.classList.remove('his_fix');
+            }
+
+            // 세로 스크롤 터치하기
+            let startY;
+            let scrollTop;
+        
+            his_cnt.addEventListener('mousedown', e => {
+            isDown = true;
+            his_cnt.classList.add('active');
+            startY = e.pageY - his_cnt.offsetTop;
+            scrollTop = his_cnt.scrollTop;
+            });
+        
+            his_cnt.addEventListener('mouseleave', () => {
+            isDown = false;
+            his_cnt.classList.remove('active');
+            });
+        
+            his_cnt.addEventListener('mouseup', () => {
+            isDown = false;
+            his_cnt.classList.remove('active');
+            });
+        
+            his_cnt.addEventListener('mousemove', e => {
+            if (!isDown) return; 
+            e.preventDefault();
+            const y = e.pageY - his_cnt.offsetTop;
+            const walk = y - startY;
+            his_cnt.scrollTop = scrollTop - walk;
+            });
         }
         
-        // 세로일때 nav fix 
-        let scroll = his_cnt.scrollTop;
-        let high = hisStart.scrollHeight;
-        if(scroll === high){
-            hisNav.classList.add('his_fix');
-        }else{
-            hisNav.classList.remove('his_fix');
-        }
     });
     
+    //cursor grab grabbing 
+    his_cnt.addEventListener('mousedown', e=>{
+        his_cnt.classList.add('his_grabbing');
+    })
+    his_cnt.addEventListener('mouseup', e=>{
+        his_cnt.classList.remove('his_grabbing');
+    })
+
+
     // json 가져오기
     function loadItems(){
         return fetch("./history.json")
@@ -140,75 +215,5 @@
             })
         })    
     
-    // -----가로 스크롤 터치하기------
-    let isDown = false;
-    if(!(windowWidth.matches)){
-        let startX;
-        let scrollLeft;
-      
-        his_cnt.addEventListener('mousedown', e => {
-          isDown = true;
-          his_cnt.classList.add('active');
-          startX = e.pageX - his_cnt.offsetLeft;
-          scrollLeft = his_cnt.scrollLeft;
-        });
-      
-        his_cnt.addEventListener('mouseleave', () => {
-          isDown = false;
-          his_cnt.classList.remove('active');
-        });
-      
-        his_cnt.addEventListener('mouseup', () => {
-          isDown = false;
-          his_cnt.classList.remove('active');
-        });
-      
-        his_cnt.addEventListener('mousemove', e => {
-          if (!isDown) return; 
-          e.preventDefault();
-          const x = e.pageX - his_cnt.offsetLeft;
-          const walk = x - startX;
-          his_cnt.scrollLeft = scrollLeft - walk;
-        });
-
-    }
-
-    // 세로 스크롤 터치하기
-    if(windowWidth.matches){
-        let startY;
-        let scrollTop;
     
-        his_cnt.addEventListener('mousedown', e => {
-        isDown = true;
-        his_cnt.classList.add('active');
-        startY = e.pageY - his_cnt.offsetTop;
-        scrollTop = his_cnt.scrollTop;
-        });
-    
-        his_cnt.addEventListener('mouseleave', () => {
-        isDown = false;
-        his_cnt.classList.remove('active');
-        });
-    
-        his_cnt.addEventListener('mouseup', () => {
-        isDown = false;
-        his_cnt.classList.remove('active');
-        });
-    
-        his_cnt.addEventListener('mousemove', e => {
-        if (!isDown) return; 
-        e.preventDefault();
-        const y = e.pageY - his_cnt.offsetTop;
-        const walk = y - startY;
-        his_cnt.scrollTop = scrollTop - walk;
-        });
-    }
-
-    //cursor grab grabbing 
-    his_cnt.addEventListener('mousedown', e=>{
-        his_cnt.classList.add('his_grabbing');
-    })
-    his_cnt.addEventListener('mouseup', e=>{
-        his_cnt.classList.remove('his_grabbing');
-    })
 })()
