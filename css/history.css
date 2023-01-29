@@ -45,8 +45,13 @@ body{
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
-    user-select:none
+    user-select:none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+body::-webkit-scrollbar {
+    display: none;
+  }
 
 /* 마우스 커서 */
 .his_grabbing {
@@ -328,6 +333,12 @@ body{
 @media (max-width: 850px){
     .his_cnt {
         flex-direction: column;
+    }
+
+    .his_fix {
+        position: fixed;
+        top: 0;
+        border-bottom: var(--border-color);
     }
 
     .his_infoCnt {

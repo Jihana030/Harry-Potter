@@ -3,15 +3,29 @@
     const his_cnt = document.querySelector('.his_cnt')
     //미디어쿼리
     let windowWidth = window.matchMedia('screen and (max-width: 850px)');
-    // 마우스 휠 가로스크롤 850보다 클 때만.
-    window.addEventListener('wheel', (e) => {
-            if(!(windowWidth.matches)){
-            his_cnt.scrollLeft += e.deltaY;
+    
+    const hisStart = document.querySelector('.his_infoTitleCnt'); //our history
+    const hisNav = document.querySelector('.his_navCnt') //nav
+    window.addEventListener('scroll', (e) => {
+        // 마우스 휠 가로스크롤 850보다 클 때만.
+        if(!(windowWidth.matches)){
+            // his_cnt.scrollLeft += e.scrollX;
         } else {
-            his_cnt.scrollTop += e.deltaY;
+            // window.scrollTo(0, 0)
+            // window.scrollBy(0,100)
+            // his_cnt.scrollTop += e.scrollY;
+        }
+        
+        // 세로일때 nav fix 
+        let scroll = his_cnt.scrollTop;
+        let high = hisStart.scrollHeight;
+        if(scroll === high){
+            hisNav.classList.add('his_fix');
+        }else{
+            hisNav.classList.remove('his_fix');
         }
     });
-
+    
     // json 가져오기
     function loadItems(){
         return fetch("./history.json")
@@ -113,18 +127,15 @@
 
     //----원하는 시대로 이동하기----
     const his_nav = document.querySelectorAll('.his_nav')
-    
         his_nav.forEach((ele, idx) =>{
             ele.addEventListener('click', e=>{
-                console.log(window.pageYOffset)
                 if(!(windowWidth.matches)){ //가로스크롤
                     const location = document.querySelector(".his_" + idx + 'nav').offsetLeft;
                     his_cnt.scrollLeft = location;
                 } else { //세로스크롤
                     const location = document.querySelector(".his_" + idx + 'nav').getBoundingClientRect().top;
-                    
-                    //his_cnt.scrollTo({top: (location + window.pageYOffset)});
-                    his_cnt.scrollTo({top: location});
+                    his_cnt.scrollTo({top: (location + window.pageYOffset)});
+                    // his_cnt.scrollTo({top: location});
                 }
             })
         })    
