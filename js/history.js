@@ -4,16 +4,13 @@
     //미디어쿼리
     let windowWidth = window.matchMedia('screen and (max-width: 850px)');
     // 마우스 휠 가로스크롤 850보다 클 때만.
-    if(!(windowWidth.matches)){
-        window.addEventListener('wheel', (e) => {
+    window.addEventListener('wheel', (e) => {
+            if(!(windowWidth.matches)){
             his_cnt.scrollLeft += e.deltaY;
-        });
-    } else {
-        window.addEventListener('wheel', (e) => {
+        } else {
             his_cnt.scrollTop += e.deltaY;
-        });
-
-    }
+        }
+    });
 
     // json 가져오기
     function loadItems(){
@@ -120,10 +117,10 @@
         his_nav.forEach((ele, idx) =>{
             ele.addEventListener('click', e=>{
                 console.log(window.pageYOffset)
-                if(!(windowWidth.matches)){
+                if(!(windowWidth.matches)){ //가로스크롤
                     const location = document.querySelector(".his_" + idx + 'nav').offsetLeft;
                     his_cnt.scrollLeft = location;
-                } else {
+                } else { //세로스크롤
                     const location = document.querySelector(".his_" + idx + 'nav').getBoundingClientRect().top;
                     
                     //his_cnt.scrollTo({top: (location + window.pageYOffset)});
