@@ -110,10 +110,13 @@
     let isDown = false; //터치이벤트용
     window.addEventListener('wheel', (e) => {
         let wheel = e.deltaY;
+        let y = 0;
+            y += wheel;
         // 마우스 휠 가로스크롤 850보다 클 때만.
         if(!(windowWidth.matches)){
             his_cnt.scrollBy({
-                left: wheel
+                left: wheel,
+                // behavior: 'smooth'
               });
               
             // -----가로 스크롤 터치하기------
@@ -126,17 +129,14 @@
                 startX = e.pageX - his_cnt.offsetLeft;
                 scrollLeft = his_cnt.scrollLeft;
             });
-        
             his_cnt.addEventListener('mouseleave', () => {
                 isDown = false;
             his_cnt.classList.remove('active');
             });
-        
             his_cnt.addEventListener('mouseup', () => {
                 isDown = false;
             his_cnt.classList.remove('active');
             });
-        
             his_cnt.addEventListener('mousemove', e => {
                 if (!isDown) return; 
                 e.preventDefault();
@@ -154,9 +154,10 @@
             })
         } else {
             his_cnt.scrollBy({
-                top: wheel
+                top: wheel,
+                // behavior: 'smooth'
             });
-            console.log(wheel)
+            console.log(`wheel: ${wheel}`)
             // 세로일때 nav fix 
             let scroll = his_cnt.scrollTop;
             let high = hisStart.scrollHeight;
@@ -176,17 +177,14 @@
             startY = e.pageY - his_cnt.offsetTop;
             scrollTop = his_cnt.scrollTop;
             });
-        
             his_cnt.addEventListener('mouseleave', () => {
             isDown = false;
             his_cnt.classList.remove('active');
             });
-        
             his_cnt.addEventListener('mouseup', () => {
             isDown = false;
             his_cnt.classList.remove('active');
             });
-        
             his_cnt.addEventListener('mousemove', e => {
             if (!isDown) return; 
             e.preventDefault();
@@ -195,13 +193,21 @@
             his_cnt.scrollTop = scrollTop - walk;
             });// 세로 스크롤 터치하기
             
-            // 시대 이동
-            his_nav.forEach((ele, idx) =>{
-                ele.addEventListener('click', e=>{
-                    const location = document.querySelector(".his_" + idx + 'nav').getBoundingClientRect().top;
-                    his_cnt.scrollTo({top: (location + window.pageYOffset)});
-                })
-            })
+            // 시대 이동-폐기
+            // his_nav.forEach((ele, idx) =>{
+            //     ele.addEventListener('click', e=>{
+            //         const location = document.querySelector(".his_" + idx + 'nav').getBoundingClientRect().top;
+                    
+            //         console.log(`y: ${y}`);
+            //         his_cnt.scrollTo({
+            //             top: (location + y)
+            //         });
+            //         console.log(`top: ${location + y}`)
+            //         // his_cnt.scrollBy({
+            //         //     top: location + wheel
+            //         // });
+            //     })
+            // })
         }
     });
     

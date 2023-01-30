@@ -354,9 +354,9 @@ body::-webkit-scrollbar {
     .his_infoTitleCnt::before {
         background-size: 38vw;
         top: -20vw;
-        right: -3vw;
+        right: -1vw;
         bottom: 10vw;
-        left: 45vw;
+        left: 55vw;
     }
 
     .his_titleTxt {
