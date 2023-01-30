@@ -3,17 +3,9 @@
     const his_cnt = document.querySelector('.his_cnt')
     //미디어쿼리
     let windowWidth = window.matchMedia('screen and (max-width: 850px)');
-    // 마우스 휠 가로스크롤 850보다 클 때만.
-    if(!(windowWidth.matches)){
-        window.addEventListener('wheel', (e) => {
-            his_cnt.scrollLeft += e.deltaY;
-        });
-    } else {
-        window.addEventListener('wheel', (e) => {
-            his_cnt.scrollTop += e.deltaY;
-        });
-
-    }
+    
+    const hisStart = document.querySelector('.his_infoTitleCnt'); //our history
+    const hisNav = document.querySelector('.his_navCnt') //nav
 
     // json 가져오기
     function loadItems(){
@@ -113,94 +105,112 @@
             }
         });
     })
-
-    //----원하는 시대로 이동하기----
-    const his_nav = document.querySelectorAll('.his_nav')
     
-        his_nav.forEach((ele, idx) =>{
-            ele.addEventListener('click', e=>{
-                console.log(window.pageYOffset)
-                if(!(windowWidth.matches)){
-                    const location = document.querySelector(".his_" + idx + 'nav').offsetLeft;
-                    his_cnt.scrollLeft = location;
-                } else {
-                    const location = document.querySelector(".his_" + idx + 'nav').getBoundingClientRect().top;
-                    
-                    //his_cnt.scrollTo({top: (location + window.pageYOffset)});
-                    his_cnt.scrollTo({top: location});
-                }
+    const his_nav = document.querySelectorAll('.his_nav')//----원하는 시대로 이동하기----
+    let isDown = false; //터치이벤트용
+    window.addEventListener('wheel', (e) => {
+        let wheel = e.deltaY;
+        // 마우스 휠 가로스크롤 850보다 클 때만.
+        if(!(windowWidth.matches)){
+            his_cnt.scrollBy({
+                left: wheel
+              });
+              
+            // -----가로 스크롤 터치하기------
+            let startX;
+            let scrollLeft;
+        
+            his_cnt.addEventListener('mousedown', e => {
+                isDown = true;
+                his_cnt.classList.add('active');
+                startX = e.pageX - his_cnt.offsetLeft;
+                scrollLeft = his_cnt.scrollLeft;
+            });
+        
+            his_cnt.addEventListener('mouseleave', () => {
+                isDown = false;
+            his_cnt.classList.remove('active');
+            });
+        
+            his_cnt.addEventListener('mouseup', () => {
+                isDown = false;
+            his_cnt.classList.remove('active');
+            });
+        
+            his_cnt.addEventListener('mousemove', e => {
+                if (!isDown) return; 
+                e.preventDefault();
+                const x = e.pageX - his_cnt.offsetLeft;
+                const walk = x - startX;
+                his_cnt.scrollLeft = scrollLeft - walk;
+            });// -----가로 스크롤 터치하기------
+            
+            // 시대 이동
+            his_nav.forEach((ele, idx) =>{
+                ele.addEventListener('click', e=>{
+                        const location = document.querySelector(".his_" + idx + 'nav').offsetLeft;
+                        his_cnt.scrollLeft = location;
+                    })
             })
-        })    
-    
-    // -----가로 스크롤 터치하기------
-    let isDown = false;
-    if(!(windowWidth.matches)){
-        let startX;
-        let scrollLeft;
-      
-        his_cnt.addEventListener('mousedown', e => {
-          isDown = true;
-          his_cnt.classList.add('active');
-          startX = e.pageX - his_cnt.offsetLeft;
-          scrollLeft = his_cnt.scrollLeft;
-        });
-      
-        his_cnt.addEventListener('mouseleave', () => {
-          isDown = false;
-          his_cnt.classList.remove('active');
-        });
-      
-        his_cnt.addEventListener('mouseup', () => {
-          isDown = false;
-          his_cnt.classList.remove('active');
-        });
-      
-        his_cnt.addEventListener('mousemove', e => {
-          if (!isDown) return; 
-          e.preventDefault();
-          const x = e.pageX - his_cnt.offsetLeft;
-          const walk = x - startX;
-          his_cnt.scrollLeft = scrollLeft - walk;
-        });
+        } else {
+            his_cnt.scrollBy({
+                top: wheel
+            });
+            console.log(wheel)
+            // 세로일때 nav fix 
+            let scroll = his_cnt.scrollTop;
+            let high = hisStart.scrollHeight;
+            if(scroll === high){
+                hisNav.classList.add('his_fix');
+            }else{
+                hisNav.classList.remove('his_fix');
+            }// 세로일때 nav fix 
 
-    }
-
-    // 세로 스크롤 터치하기
-    if(windowWidth.matches){
-        let startY;
-        let scrollTop;
+            // 세로 스크롤 터치하기
+            let startY;
+            let scrollTop;
+        
+            his_cnt.addEventListener('mousedown', e => {
+            isDown = true;
+            his_cnt.classList.add('active');
+            startY = e.pageY - his_cnt.offsetTop;
+            scrollTop = his_cnt.scrollTop;
+            });
+        
+            his_cnt.addEventListener('mouseleave', () => {
+            isDown = false;
+            his_cnt.classList.remove('active');
+            });
+        
+            his_cnt.addEventListener('mouseup', () => {
+            isDown = false;
+            his_cnt.classList.remove('active');
+            });
+        
+            his_cnt.addEventListener('mousemove', e => {
+            if (!isDown) return; 
+            e.preventDefault();
+            const y = e.pageY - his_cnt.offsetTop;
+            const walk = y - startY;
+            his_cnt.scrollTop = scrollTop - walk;
+            });// 세로 스크롤 터치하기
+            
+            // 시대 이동
+            his_nav.forEach((ele, idx) =>{
+                ele.addEventListener('click', e=>{
+                    const location = document.querySelector(".his_" + idx + 'nav').getBoundingClientRect().top;
+                    his_cnt.scrollTo({top: (location + window.pageYOffset)});
+                })
+            })
+        }
+    });
     
-        his_cnt.addEventListener('mousedown', e => {
-        isDown = true;
-        his_cnt.classList.add('active');
-        startY = e.pageY - his_cnt.offsetTop;
-        scrollTop = his_cnt.scrollTop;
-        });
-    
-        his_cnt.addEventListener('mouseleave', () => {
-        isDown = false;
-        his_cnt.classList.remove('active');
-        });
-    
-        his_cnt.addEventListener('mouseup', () => {
-        isDown = false;
-        his_cnt.classList.remove('active');
-        });
-    
-        his_cnt.addEventListener('mousemove', e => {
-        if (!isDown) return; 
-        e.preventDefault();
-        const y = e.pageY - his_cnt.offsetTop;
-        const walk = y - startY;
-        his_cnt.scrollTop = scrollTop - walk;
-        });
-    }
-
     //cursor grab grabbing 
     his_cnt.addEventListener('mousedown', e=>{
         his_cnt.classList.add('his_grabbing');
     })
     his_cnt.addEventListener('mouseup', e=>{
         his_cnt.classList.remove('his_grabbing');
-    })
+    })   
+            
 })()

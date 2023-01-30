@@ -45,8 +45,15 @@ body{
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
-    user-select:none
+    user-select:none;
+    /* 가로스크롤 안보이게 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: scroll;
 }
+body::-webkit-scrollbar {
+    display: none;
+  }
 
 /* 마우스 커서 */
 .his_grabbing {
@@ -326,8 +333,17 @@ body{
 
 /* ------------ 미디어쿼리 ---------------------- 미디어쿼리 ----------- */
 @media (max-width: 850px){
+    body {
+        overflow-y: scroll;
+    }
     .his_cnt {
         flex-direction: column;
+    }
+
+    .his_fix {
+        position: fixed;
+        top: 0;
+        border-bottom: var(--border-color);
     }
 
     .his_infoCnt {
