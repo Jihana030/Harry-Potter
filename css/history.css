@@ -19,9 +19,13 @@ a {
     --border-color: 1px solid #B5AAA0;
     --width-start: 24%;
     --font-size-16: 0.8vw;
-    --font-size-20: 1vh;
+    --font-size-16-h: 2vh;
+    --font-size-20: 1vw;
     --font-size-20-h: 2.2vh;
-    --font-size-28: 2.1vh;
+    --font-size-28: 1.45vw;
+    --font-size-28-h: 4vh;
+    --font-size-y: 2vw;
+    --font-size-y-h: 2.7vh;
     --color-back: #F0EDE8;
     --img-size-y: 16.5vh;
     --img-size-y-h: 30vw;
@@ -266,9 +270,9 @@ body::-webkit-scrollbar {
 }
 
 /* 에피소드 개별 css */
-.his_detailY {
+.his_detailY { /*연도*/
     font: var(--font-i);
-    font-size: var(--font-size-20);
+    font-size: var(--font-size-y);
     font-style: normal;
     font-weight: 400;
     line-height: 25px;
@@ -331,7 +335,7 @@ body::-webkit-scrollbar {
     padding-bottom: 0.5rem;
 }
 
-/* ------------ 미디어쿼리 ---------------------- 미디어쿼리 ----------- */
+/* ------------ 미디어쿼리 ---------------------- 미디어쿼리 ----------------------- */
 @media (max-width: 850px){
     body {
         overflow-y: scroll;
@@ -393,12 +397,14 @@ body::-webkit-scrollbar {
         position: relative;
         border-right: none;
         border-bottom: var(--border-color);
+        overflow: hidden;
     }
 
     .his_upDownCnt {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%; height: auto;
-        padding-top: 10%;
         margin-left: 6%;
     }
 
@@ -414,13 +420,14 @@ body::-webkit-scrollbar {
         transform: rotate(90deg);
         margin: 100px -55vw;
         z-index: -2;
-        padding-right: 6%;
+        left: 0%;
+        background-position: center;
     }
 
     .his_year {
         transform: rotate(90deg) translateY(-48px);
         transform-origin: left top;
-        width: 100%;
+        width: 160%;
         left: 0;
         flex-basis: auto;
         position: absolute;
@@ -442,11 +449,18 @@ body::-webkit-scrollbar {
     }
 
     .his_detailY {
-        top: 51.5%;
+        top: 45%;
         width: 10rem;
         height: 27vh;
         z-index: -1;
-        padding-top: 10px;
+        padding: 20px 0;
+        font-size: var(--font-size-y-h);
+    }
+    .his_detailT{
+        font-size: var(--font-size-28-h);
+    }
+    .his_detailD{
+        font-size: var(--font-size-16-h);
     }
 
     .his_border {
